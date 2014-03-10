@@ -4,6 +4,7 @@
  */
 
 module.exports = debug;
+window.debug = debug;
 
 /**
  * Create a debugger with the given `name`.
