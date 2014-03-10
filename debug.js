@@ -15,9 +15,8 @@ window.debug = debug;
  */
 
 function debug(name) {
-  if (!debug.enabled(name)) return function(){};
-
   return function(fmt){
+    if (!debug.enabled(name)) return;
     fmt = coerce(fmt);
 
     var curr = new Date;
@@ -78,6 +77,8 @@ debug.enable = function(name) {
  */
 
 debug.disable = function(){
+  debug.names = [];
+  debug.skips = [];
   debug.enable('');
 };
 
